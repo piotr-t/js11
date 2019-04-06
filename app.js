@@ -80,7 +80,6 @@ class palindromicSubstring {
     constructor(text) {
         let words = [];
         let palindroms = [];
-        let palindrom;
         for (let l = 0; l < text.length; l++) {
             for (let k = text.length; k > l; k--) {
                 if (text[l] === text[k]) {
@@ -100,12 +99,82 @@ class palindromicSubstring {
             }
         })
         palindroms = palindroms.sort((a, b) => b.length - a.length)
-        console.log('palindrom', palindroms[0]);
+        return palindroms[0];
     }
 }
 
 let bf = new palindromicSubstring("karakis");
+// console.log(bf);
+
+//3) Given two strings, write a program that efficiently finds the longest common subsequence. ‘karol rolki’
+
+class commonSubsequence {
+    constructor(str1 = '', str2 = '') {
+        this.str1 = str1;
+        this.str2 = str2;
+        this.str3 = [];
+
+        for (let w = 0; w < this.str1.length; w++) {
+            if (this.str2.includes(this.str1.slice(w))) {
+                this.str3.push(this.str1.slice(w));
+            }
+            if (this.str2.includes(this.str1.slice(0, - w)) && w !== 0) {
+                this.str3.push(this.str1.slice(0, - w));
+            }
+        };
+        this.str4 = this.str3.slice(0, 1);
+        return this.str4;
+    }
+}
+let tr = new commonSubsequence("fgfgrrerere", "fgff");
+
+//4)
+
+class transformText {
+    constructor(text1, text2) {
+        this.text1 = text1;
+        this.text2 = text2;
+        this.text = [...this.text2].reduce((prev, curr, index) => {
+            //          console.log("  index:", index, "  prev:", prev, "  curr:", curr);
+            return curr === prev[index] ? prev : prev.substring(0, index) + this.text2[index] + prev.substr(index);
+        }, this.text1).substring(0, text2.length);
+    }
+}
+
+let tre = new transformText("zając", "ferie");
+
+//5) 
+
+class twoMatrixes {
+
+    constructor(matrix1, matrix2) {
+
+        this.matrix = [];
+        let matrix1Dimension = matrix1[0].length;
+        if ((matrix1Dimension === matrix2.length) && Array.isArray(matrix1) && Array.isArray(matrix2)) {
+            for (let l = 0; l < matrix1.length; l++) {
+                this.matrix.push([]);
+                for (let m = 0; m < matrix2[0].length; m++) {
+                    this.matrix[l][m] = matrix1[l].reduce((prev, curr, index) => {
+                        return prev + curr * matrix2[index][m];
+                    }, 0);
+
+                }
+            }
+        } else console.log("wrong matrixes dimension");
+
+    }
+}
+
+let mat1 = [
+    [2, 1, 3],
+    [-1, 2, 4]];
 
 
+let mat2 = [
+    [1, 3],
+    [2, -2],
+    [-1, 4]];
 
-
+let mat = new twoMatrixes(mat1, mat2);
+console.log(mat);
