@@ -150,7 +150,7 @@ let newText = new TransformText("free", "ferie");
 console.log(newText);
 
 
-//5) 5) Write a code that multiplies two matrices together. Dimension validation required. 
+//5)  Write a code that multiplies two matrices together. Dimension validation required. 
 
 class TwoMatrixes {
 
