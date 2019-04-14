@@ -1,4 +1,6 @@
 
+//1) Write a program that automatically converts English text to Morse code and vice versa.
+
 let codeMorsea = {
     A: ".-",
     B: "-.",
@@ -43,7 +45,7 @@ let codeMorseaKeyValue = [
     '---..',
     '----.'];
 
-class changeText {
+class ChangeText {
 
     replaceText(text, keyObject, direction = true) {
         let keys = Object.keys(keyObject);
@@ -71,12 +73,12 @@ class changeText {
     }
 }
 
-let chT = new changeText();
+let chT = new ChangeText();
 // console.log(chT.replaceText(" .--- .- -.- .. ... /  - . -.- ... -", codeMorsea, false));
 
 // 2) Write a program that finds the longest palindromic substring of a given string. ‘karakis’, ‘baerren’, ‘kajak’, ‘inni’.
 
-class palindromicSubstring {
+class PalindromicSubstring {
     constructor(text) {
         let words = [];
         let palindroms = [];
@@ -103,12 +105,12 @@ class palindromicSubstring {
     }
 }
 
-let bf = new palindromicSubstring("karakis");
+let bf = new PalindromicSubstring("karakis");
 // console.log(bf);
 
 //3) Given two strings, write a program that efficiently finds the longest common subsequence. ‘karol rolki’
 
-class commonSubsequence {
+class CommonSubsequence {
     constructor(str1 = '', str2 = '') {
         this.str1 = str1;
         this.str2 = str2;
@@ -126,11 +128,14 @@ class commonSubsequence {
         return this.str4;
     }
 }
-let tr = new commonSubsequence("fgfgrrerere", "fgff");
+let subsequence = new CommonSubsequence("karol", "rolki");
+console.log(subsequence);
 
-//4)
 
-class transformText {
+//4)4 Given two strings, write a program that outputs the shortest sequence
+// of character insertions and deletions that turn one string into the other. 
+
+class TransformText {
     constructor(text1, text2) {
         this.text1 = text1;
         this.text2 = text2;
@@ -141,11 +146,13 @@ class transformText {
     }
 }
 
-let tre = new transformText("zając", "ferie");
+let newText = new TransformText("free", "ferie");
+console.log(newText);
 
-//5) 
 
-class twoMatrixes {
+//5) 5) Write a code that multiplies two matrices together. Dimension validation required. 
+
+class TwoMatrixes {
 
     constructor(matrix1, matrix2) {
 
@@ -176,5 +183,5 @@ let mat2 = [
     [2, -2],
     [-1, 4]];
 
-let mat = new twoMatrixes(mat1, mat2);
-console.log(mat);
+let matrix = new TwoMatrixes(mat1, mat2);
+console.log(matrix);
