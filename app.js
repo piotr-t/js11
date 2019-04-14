@@ -132,7 +132,7 @@ let subsequence = new CommonSubsequence("karol", "rolki");
 console.log(subsequence);
 
 
-//4)4 Given two strings, write a program that outputs the shortest sequence
+//4) Given two strings, write a program that outputs the shortest sequence
 // of character insertions and deletions that turn one string into the other. 
 
 class TransformText {
